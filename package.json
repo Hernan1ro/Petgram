@@ -1,16 +1,23 @@
 {
     "name": "curso-platzi-react-avanzado",
     "version": "1.0.0",
-    "description": "**¡Sígueme en Youtube para más contenido de React y Javascript!** 👉 https://www.youtube.com/midudev",
+    "description": "Petgram is a webapp for your pets",
     "main": "webpack.config.js",
     "dependencies": {
         "@babel/preset-react": "^7.14.5",
         "html-webpack-plugin": "^5.4.0",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
+        "standard": "^16.0.4",
+        "styled-components": "^5.3.3",
         "webpack": "^5.59.0",
         "webpack-cli": "^4.9.1",
         "webpack-dev-server": "^4.3.1"
+    },
+    "standard": {
+        "ignore": [
+            "/api/**"
+        ]
     },
     "devDependencies": {
         "@babel/core": "^7.15.8",
@@ -20,17 +27,18 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "webpack",
-        "dev": "webpack-dev-server"
+        "dev": "webpack-dev-server",
+        "lint": "standard"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/midudev/curso-platzi-react-avanzado.git"
+        "url": "https://github.com/Hernan1ro/Petgram"
     },
     "keywords": [],
-    "author": "",
+    "author": "Hernán Mercado",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/midudev/curso-platzi-react-avanzado/issues"
+        "url": "https://github.com/Hernan1ro/Petgram"
     },
-    "homepage": "https://github.com/midudev/curso-platzi-react-avanzado#readme"
+    "homepage": "https://github.com/Hernan1ro/Petgram"
 }
