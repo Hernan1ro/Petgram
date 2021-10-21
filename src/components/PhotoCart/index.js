@@ -1,6 +1,6 @@
 import React from "react";
 import { ImgWrapper, Img, Button, Article } from "./styles";
-import { MdFavoriteBorder } from "react-icons/md";
+import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 
 const DEFAULT_IMAGE =
   "https://res.cloudinary.com/midudev/image/upload/w_150/v1555671700/category_cats.jpg";
@@ -8,14 +8,23 @@ const DEFAULT_IMAGE =
 export const PhotoCart = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
   const element = React.useRef(null);
   const [show, setShow] = React.useState(false);
+  const key = `like-${id}`;
+  const [liked, setLiked] = React.useState(() => {
+    try {
+      const like = window.localStorage.getItem(key);
+      return like;
+    } catch (error) {
+      return false;
+    }
+  });
+  console.log(liked);
   React.useEffect(
     function () {
       Promise.resolve(
         typeof window.IntersectionObserver !== "undefined"
           ? window.IntersectionObserver
           : import("intersection-observer")
-      )
-      .then(() => {
+      ).then(() => {
         const observer = new window.IntersectionObserver(function (entries) {
           const { isIntersecting } = entries[0];
           if (isIntersecting) {
@@ -28,6 +37,15 @@ export const PhotoCart = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     },
     [element]
   );
+  const Icon = liked ? MdFavorite : MdFavoriteBorder;
+  const setLocalStorage = (value) => {
+    try {
+      window.localStorage.setItem(key, value);
+      setLiked(value);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Article ref={element}>
       {show && (
@@ -37,8 +55,12 @@ export const PhotoCart = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
               <Img src={src} />
             </ImgWrapper>
           </a>
-          <Button>
-            <MdFavoriteBorder size="32px" /> {likes} Likes!
+          <Button
+            onClick={() => {
+              setLocalStorage(!liked);
+            }}
+          >
+            <Icon size="32px" /> {likes} Likes!
           </Button>
         </React.Fragment>
       )}
