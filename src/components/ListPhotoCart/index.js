@@ -1,10 +1,37 @@
+//DEPENDENCIES
 import React from "react";
+import { useQuery, gql } from "@apollo/client";
+
+//COMPONENTS
 import { PhotoCart } from "../PhotoCart";
+
+const whitPhotos = gql`
+  query getPhotos {
+    photos {
+      id
+      categoryId
+      src
+      likes
+      userId
+      liked
+    }
+  }
+`;
+
 export const ListPhotoCart = () => {
+  const { loading, error, data } = useQuery(whitPhotos);
+
+  if (error) {
+    return <h2>Internal Server Error</h2>;
+  }
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
+
   return (
     <ul>
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((id) => (
-        <PhotoCart key={id} id={id} />
+      {data.photos.map((photo) => (
+        <PhotoCart key={photo.id} {...photo} />
       ))}
     </ul>
   );
