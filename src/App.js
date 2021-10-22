@@ -10,7 +10,7 @@ const App = () => {
       <Logo />
       <GlobalStyle />
       <ListOfCategories />
-      <ListPhotoCart />
+      <ListPhotoCart categoryId={1} />
     </div>
   );
 };

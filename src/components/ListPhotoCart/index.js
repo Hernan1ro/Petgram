@@ -6,8 +6,8 @@ import { useQuery, gql } from "@apollo/client";
 import { PhotoCart } from "../PhotoCart";
 
 const whitPhotos = gql`
-  query getPhotos {
-    photos {
+  query getPhotos($categoryId: ID) {
+    photos(categoryId: $categoryId) {
       id
       categoryId
       src
@@ -18,8 +18,10 @@ const whitPhotos = gql`
   }
 `;
 
-export const ListPhotoCart = () => {
-  const { loading, error, data } = useQuery(whitPhotos);
+export const ListPhotoCart = ({ categoryId }) => {
+  const { loading, error, data } = useQuery(whitPhotos, {
+    variables: { categoryId: categoryId },
+  });
 
   if (error) {
     return <h2>Internal Server Error</h2>;
@@ -31,7 +33,7 @@ export const ListPhotoCart = () => {
   return (
     <ul>
       {data.photos.map((photo) => (
-        <PhotoCart key={photo.id} {...photo} />
+        <PhotoCart src={photo.src} key={photo.id} id={photo.id} {...photo} />
       ))}
     </ul>
   );
