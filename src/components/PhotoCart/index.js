@@ -14,11 +14,13 @@ export const PhotoCart = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
   const { toggleLikePhoto } = UseLikeMutation();
   const handleFavClick = () => {
     setLocalStorage(!storedValue);
-    toggleLikePhoto({
-      variables: {
-        input: { id },
-      },
-    });
+    if (!storedValue) {
+      toggleLikePhoto({
+        variables: {
+          input: { id },
+        },
+      });
+    }
   };
   return (
     <Article ref={element}>
