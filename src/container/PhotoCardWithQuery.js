@@ -1,5 +1,6 @@
 import React from "react";
 import { PhotoCart } from "../components/PhotoCart";
+import { Spinner } from "../components/General/Spinner";
 
 import { gql, useQuery } from "@apollo/client";
 
@@ -17,7 +18,6 @@ const query = gql`
 `;
 
 export const PhotoCartWithQuery = ({ id }) => {
-  console.log(id);
   const { loading, error, data } = useQuery(query, {
     variables: {
       id: id,
@@ -27,7 +27,7 @@ export const PhotoCartWithQuery = ({ id }) => {
     return <h2>Internal Server Error</h2>;
   }
   if (loading) {
-    return <h2>Loading...</h2>;
+    return <Spinner />;
   }
 
   return <PhotoCart {...data.photo} />;

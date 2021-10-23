@@ -1,15 +1,42 @@
+const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   output: {
     filename: "app.bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "/",
   },
   mode: "development",
+  resolve: {
+    extensions: [".jsx", ".js"],
+    alias: {
+      "@components": path.resolve(__dirname, "src/components/"),
+      "@containers": path.resolve(__dirname, "src/containers/"),
+      "@pages": path.resolve(__dirname, "src/pages/"),
+      "@styles": path.resolve(__dirname, "src/styles/"),
+      "@icons": path.resolve(__dirname, "src/assets/icons/"),
+      "@logos": path.resolve(__dirname, "src/assets/logos/"),
+      "@routes": path.resolve(__dirname, "src/routes/"),
+      "@hooks": path.resolve(__dirname, "src/hooks/"),
+    },
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "src/index.html",
     }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+    }),
   ],
+  devServer: {
+    static: path.join(__dirname, "dist"),
+    compress: true,
+    historyApiFallback: true,
+    port: 3006,
+    open: true,
+  },
   module: {
     rules: [
       {
@@ -22,6 +49,10 @@ module.exports = {
             presets: ["@babel/preset-env", "@babel/preset-react"],
           },
         },
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
