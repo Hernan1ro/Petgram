@@ -35,7 +35,6 @@ export const ListOfCategories = () => {
     },
     [showFixed]
   );
-  console.log(categories);
   const renderList = (fixed) => {
     return (
       <List fixed={fixed}>

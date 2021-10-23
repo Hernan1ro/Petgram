@@ -6,8 +6,6 @@ import { withRouter } from "react-router-dom";
 function Home(props) {
   const { id } = props.match.params;
 
-  console.log(props);
-
   return (
     <React.Fragment>
       <ListOfCategories />
