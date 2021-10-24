@@ -17,7 +17,7 @@ const App = () => {
           path="/detail/:id"
           render={(props) => <Detail {...props} />}
         />
-        <Route exact path="/" render={(props) => <Home {...props} />} />
+        <Route exact path="/home" render={(props) => <Home {...props} />} />
         <Route exact path="/pet/:id" render={(props) => <Home {...props} />} />
       </Switch>
       <NavBar />
