@@ -4,7 +4,7 @@ import { Svg } from "./styles";
 
 export const Logo = (props) => {
   return (
-    <Link to="/">
+    <Link to="/home">
       <Svg
         width={420.478}
         height={139.042}
