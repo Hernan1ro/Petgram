@@ -8,10 +8,7 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { Favs } from "./pages/Favs";
 import { User } from "./pages/User";
 import { NotRegistered } from "./pages/NotRegistered";
-
-const UserLogged = ({ children }) => {
-  return children({ isAuth: false });
-};
+import Context from "./context/context";
 
 const App = () => {
   return (
@@ -26,7 +23,7 @@ const App = () => {
         />
         <Route exact path="/home" render={(props) => <Home {...props} />} />
         <Route exact path="/pet/:id" render={(props) => <Home {...props} />} />
-        <UserLogged>
+        <Context.Consumer>
           {({ isAuth }) =>
             isAuth ? (
               <Switch>
@@ -40,7 +37,7 @@ const App = () => {
               </Switch>
             )
           }
-        </UserLogged>
+        </Context.Consumer>
       </Switch>
       <NavBar />
     </BrowserRouter>
