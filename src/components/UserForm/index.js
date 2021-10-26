@@ -6,8 +6,12 @@ export const UserForm = ({ onSubmit, title }) => {
   const email = useInputValue();
   const password = useInputValue();
   // console.log(email.value, password.value);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit({ email: email.value, password: password.value });
+  };
   return (
-    <Form onSubmit={onSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Title>{title}</Title>
       <Input name="email" type="text" placeholder="email" {...email} />
       <Input
