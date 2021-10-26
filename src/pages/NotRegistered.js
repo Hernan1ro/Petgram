@@ -4,7 +4,10 @@ import Context from "../context/context";
 import { useRegisterMutation } from "../container/RegisterMutation";
 
 export const NotRegistered = () => {
-  const { registerMutation } = useRegisterMutation();
+  const { registerMutation, data, loading, error } = useRegisterMutation();
+
+  const errorMsg =
+    error && "El usuario ya se encuentra registrado o hubo un problema";
 
   return (
     <Context.Consumer>
@@ -16,12 +19,16 @@ export const NotRegistered = () => {
         };
         return (
           <>
-            <UserForm onSubmit={onSubmit} title="Registrarse" />
+            <UserForm
+              error={errorMsg}
+              loading={loading}
+              onSubmit={onSubmit}
+              title="Registrarse"
+            />
             <UserForm onSubmit={activateAuth} title="Iniciar Sesion" />
           </>
         );
       }}
     </Context.Consumer>
-    // <h1>NotRegisteredUser</h1>
   );
 };
