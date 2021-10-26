@@ -27,14 +27,18 @@ export const NotRegistered = () => {
         const onSubmit = ({ email, password }) => {
           const input = { email, password };
           const variables = { input };
-          registerMutation({ variables }).then(activateAuth);
+          registerMutation({ variables }).then(({ data }) => {
+            const { signup } = data;
+            activateAuth(signup);
+          });
         };
         const onSubmitLogin = ({ email, password }) => {
           const input = { email, password };
           const variables = { input };
           login({ variables })
-            .then((res) => {
-              activateAuth();
+            .then(({ data }) => {
+              const { login } = data;
+              activateAuth(login);
             })
             .catch((err) => {
               console.log(err);
