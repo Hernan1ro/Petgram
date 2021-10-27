@@ -1,8 +1,10 @@
 import React, { createContext } from "react";
+import { useApolloClient } from "@apollo/client";
 
 const Context = createContext();
 
 const Provider = ({ children }) => {
+  const client = useApolloClient();
   const [isAuth, setIsAuth] = React.useState(() => {
     return window.sessionStorage.getItem("token");
   });
@@ -15,6 +17,7 @@ const Provider = ({ children }) => {
     removeAuth: () => {
       setIsAuth(false);
       window.sessionStorage.removeItem("token");
+      client.resetStore();
     },
   };
   return <Context.Provider value={value}>{children}</Context.Provider>;

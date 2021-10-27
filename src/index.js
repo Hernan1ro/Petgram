@@ -43,11 +43,11 @@ const client = new ApolloClient({
 });
 
 ReactDOM.render(
-  <Context.Provider value={{ isAuth: false }}>
-    <ApolloProvider client={client}>
+  <ApolloProvider client={client}>
+    <Context.Provider value={{ isAuth: false }}>
       <App />
-    </ApolloProvider>
-  </Context.Provider>,
+    </Context.Provider>
+  </ApolloProvider>,
 
   document.getElementById("App")
 );
