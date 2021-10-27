@@ -17,7 +17,7 @@ export const Button = styled.button`
 
 export const UserTitle = styled.h1`
   font-size: 20px;
-  margin-bottom: 70px;
+  margin-bottom: 40px;
   margin-left: 120px;
   color: #8d00ff;
   font-weight: bold;

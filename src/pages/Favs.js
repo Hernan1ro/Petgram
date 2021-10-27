@@ -1,10 +1,11 @@
 import React from "react";
 import { RenderProp } from "../container/GetFavorites";
+import { UserTitle } from "../components/SubmitButton/styles";
 
 export const Favs = () => {
   return (
     <React.Fragment>
-      <h1>Favoritos</h1>
+      <UserTitle>Favoritos</UserTitle>
       <RenderProp />
     </React.Fragment>
   );
