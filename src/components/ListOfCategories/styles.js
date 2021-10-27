@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 export const List = styled.ul`
   display: flex;
+  padding: 0;
   overflow: scroll;
   width: 100%;
   &::-webkit-scrollbar {

@@ -1,10 +1,8 @@
-//DEPENDENCIES
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
-
-//COMPONENTS
 import { PhotoCart } from "../PhotoCart";
 import { Spinner } from "../General/Spinner";
+import { List } from "./styles";
 
 const whitPhotos = gql`
   query getPhotos($categoryId: ID) {
@@ -32,10 +30,10 @@ export const ListPhotoCart = ({ categoryId }) => {
   }
 
   return (
-    <ul>
+    <List>
       {data.photos.map((photo) => (
         <PhotoCart src={photo.src} key={photo.id} id={photo.id} {...photo} />
       ))}
-    </ul>
+    </List>
   );
 };
