@@ -1,5 +1,6 @@
 import React from "react";
-import { Title, Button, Form, Input, Error } from "./styles";
+import { Title, Form, Input, Error } from "./styles";
+import { SubmitButton } from "../SubmitButton";
 import { useInputValue } from "../../hooks/useInputValue";
 import { Spinner } from "../General/Spinner";
 
@@ -27,9 +28,9 @@ export const UserForm = ({ onSubmit, title, error, loading }) => {
         placeholder="Password"
         {...password}
       />
-      <Button disabled={loading} type="submit">
+      <SubmitButton disabled={loading} type="submit">
         {title}
-      </Button>
+      </SubmitButton>
       <Error>{error}</Error>
       {loading ? <Spinner /> : ""}
     </Form>
