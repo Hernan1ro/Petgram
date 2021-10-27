@@ -3,6 +3,7 @@ import { UserForm } from "../components/UserForm";
 import Context from "../context/context";
 import { useRegisterMutation } from "../container/RegisterMutation";
 import { useLoginMutation } from "../container/LoginMutation";
+import { Layout } from "../components/Layout";
 
 export const NotRegistered = () => {
   const {
@@ -45,7 +46,7 @@ export const NotRegistered = () => {
             });
         };
         return (
-          <>
+          <Layout title="Inciar sesión">
             <UserForm
               error={errorMsg}
               loading={loadingRegister}
@@ -58,7 +59,7 @@ export const NotRegistered = () => {
               onSubmit={onSubmitLogin}
               title="Iniciar Sesion"
             />
-          </>
+          </Layout>
         );
       }}
     </Context.Consumer>
