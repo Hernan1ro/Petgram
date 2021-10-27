@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import Context from "../context/context";
 import { SubmitButton } from "../components/SubmitButton";
+import { UserTitle } from "../components/SubmitButton/styles";
 
 export const User = () => {
   return (
@@ -8,7 +9,7 @@ export const User = () => {
       {({ removeAuth }) => {
         return (
           <>
-            <h1>Cerrar sesión</h1>
+            <UserTitle>Cerrar sesión</UserTitle>
             <SubmitButton onClick={removeAuth}>Logout</SubmitButton>
           </>
         );
