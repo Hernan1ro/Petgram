@@ -32,15 +32,19 @@
         "@babel/core": "^7.15.8",
         "@babel/preset-env": "^7.15.8",
         "babel-loader": "^8.2.2",
+        "copy-webpack-plugin": "^9.0.1",
         "css-loader": "^6.4.0",
         "mini-css-extract-plugin": "^2.4.3",
-        "style-loader": "^3.3.1"
+        "style-loader": "^3.3.1",
+        "webpack-pwa-manifest": "^4.3.0",
+        "workbox-webpack-plugin": "^6.3.0"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "webpack",
         "dev": "webpack-dev-server",
-        "lint": "standard"
+        "lint": "standard",
+        "start": "webpack serve --mode development",
+        "build": "webpack --mode production"
     },
     "repository": {
         "type": "git",
