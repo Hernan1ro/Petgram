@@ -33,8 +33,8 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [
-        { from: "public/manifest.json", to: "dist" },
-        { from: "public/service-worker.js", to: "dist" },
+        { from: "public/manifest.json", to: "" },
+        { from: "public/service-worker.js", to: "" },
         { from: "public/icon.png", to: "assets" },
       ],
     }),
