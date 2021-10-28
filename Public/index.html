@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="apple-touch-icon" href="/src/assets/icon.png" />
-        <link rel="manifest" href="/manifest.json" />
-        <title>Petgram</title>
-    </head>
-    <body>
-        <div id="App"></div>
-        <noscript>
-            <h3>Esta aplicación necesita Javascript para funcionar</h3>
-        </noscript>
-        <script>
-            if ("serviceWorker" in navigator) {
-                window.addEventListener("load", function () {
-                    navigator.serviceWorker
-                        .register("service-worker.js")
-                        .then(
-                            function (registration) {
-                                console.log(
-                                    "ServiceWorker registration successful with scope: ",
-                                    registration.scope
-                                );
-                            },
-                            function (err) {
-                                console.log(
-                                    "ServiceWorker registration failed: ",
-                                    err
-                                );
-                            }
-                        )
-                        .catch(function (err) {
-                            console.log(err);
-                        });
-                });
-            } else {
-                console.log("service worker is not supported");
-            }
-        </script>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" href="/src/assets/icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <title>Petgram</title>
+  </head>
+  <body>
+    <div id="App"></div>
+    <noscript>
+      <h3>Esta aplicación necesita Javascript para funcionar</h3>
+    </noscript>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("service-worker.js")
+            .then(
+              function (registration) {
+                console.log(
+                  "ServiceWorker registration successful with scope: ",
+                  registration.scope
+                );
+              },
+              function (err) {
+                console.log("ServiceWorker registration failed: ", err);
+              }
+            )
+            .catch(function (err) {
+              console.log(err);
+            });
+        });
+      } else {
+        console.log("service worker is not supported");
+      }
+    </script>
+  </body>
 </html>
