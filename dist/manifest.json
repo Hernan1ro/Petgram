@@ -1,0 +1,15 @@
+{
+    "short_name": "Petgram",
+    "name": "A app to photos of pets",
+    "icons": [
+        {
+            "src": "assets/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/home",
+    "background_color": "#222",
+    "theme_color": "#222",
+    "display": "standalone"
+}
