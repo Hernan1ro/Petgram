@@ -1,10 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const WebpackPwaManifestPlugin = require("webpack-pwa-manifest");
-// const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
-// const path = require("path");
 
 module.exports = {
   entry: "./src/index.js",
@@ -36,47 +33,11 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [
-        { from: "public/manifest.json", to: "" },
-        { from: "public/service-worker.js", to: "" },
+        { from: "public/manifest.json", to: "dist" },
+        { from: "public/service-worker.js", to: "dist" },
         { from: "public/icon.png", to: "assets" },
       ],
     }),
-    // new WebpackPwaManifestPlugin({
-    //   name: "Petgram - Tu app de fotos de mascotas",
-    //   shortname: "Petgram 🐶",
-    //   description: "Con Petgram puedes encontrar fotos de animales domésticos",
-    //   background_color: "#fff",
-    //   theme_color: "#ffa",
-    //   icons: [
-    //     {
-    //       src: path.resolve("src/assets/icon.png"),
-    //       sizes: [96, 128, 144, 192, 256, 384, 512],
-    //       purpose: "maskable",
-    //     },
-    //   ],
-    // }),
-    // new WorkboxWebpackPlugin.GenerateSW({
-    //   runtimeCaching: [
-    //     {
-    //       urlPattern: new RegExp(
-    //         "https://(res.cloudinary.com|images.unsplash.com)"
-    //       ),
-    //       handler: "CacheFirst",
-    //       options: {
-    //         cacheName: "images",
-    //       },
-    //     },
-    //     {
-    //       urlPattern: new RegExp(
-    //         "https://petgram-server-clgg.vercel.app/graphql"
-    //       ),
-    //       handler: "NetworkFirst",
-    //       options: {
-    //         cacheName: "api",
-    //       },
-    //     },
-    //   ],
-    // }),
   ],
   devServer: {
     static: path.join(__dirname, "dist"),
