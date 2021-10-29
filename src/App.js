@@ -9,6 +9,7 @@ import { Favs } from "./pages/Favs";
 import { User } from "./pages/User";
 import { NotRegistered } from "./pages/NotRegistered";
 import { NotFound } from "./components/NotFound";
+import { Welcome } from "./pages/Welcome";
 import Context from "./context/context";
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
                 path="/home"
                 render={(props) => <Home {...props} />}
               />
+              <Route exact path="/" component={Welcome} />
               <Route
                 exact
                 path="/pet/:id"
