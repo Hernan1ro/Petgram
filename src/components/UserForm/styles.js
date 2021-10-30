@@ -21,8 +21,10 @@ export const Input = styled.input`
 `;
 
 export const Title = styled.h2`
-  font-size: 26px;
-  font-weight: 500;
+  color: #aea5e4;
+  font-weight: 600px;
+  margin-bottom: 20px;
+  margin: 0 auto;
   padding: 8px 0;
 `;
 
