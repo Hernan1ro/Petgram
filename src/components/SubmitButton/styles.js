@@ -1,7 +1,15 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-  background: #8d00ff;
+  font-weight: bold;
+  font-size: 18px;
+  background: rgb(72, 219, 210);
+  background: linear-gradient(
+    90deg,
+    rgba(72, 219, 210, 1) 0%,
+    rgba(227, 137, 237, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
   border-radius: 15px;
   color: #fff;
   height: 32px;
