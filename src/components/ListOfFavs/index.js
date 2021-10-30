@@ -6,8 +6,8 @@ export const ListOfFavs = ({ favs = [] }) => {
     <Grid>
       {favs.map((fav) => {
         return (
-          <Link to={`/detail/${fav.id}`}>
-            <Image src={fav.src} key={fav.id} />
+          <Link to={`/detail/${fav.id}`} key={fav.id}>
+            <Image src={fav.src} />
           </Link>
         );
       })}

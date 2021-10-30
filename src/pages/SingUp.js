@@ -7,7 +7,6 @@ import { Layout } from "../components/Layout";
 export const SingUp = () => {
   const {
     registerMutation,
-    data,
     loading: loadingRegister,
     error: errorRegister,
   } = useRegisterMutation();

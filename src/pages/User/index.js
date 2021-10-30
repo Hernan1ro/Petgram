@@ -1,8 +1,9 @@
 import React from "react";
 import Context from "../../context/context";
 import { SubmitButton } from "../../components/SubmitButton";
-import { UserTitle } from "../../components/SubmitButton/styles";
 import { Layout } from "../../components/Layout";
+import { Div, Img } from "./styles";
+import userLogo from "../../assets/userLogout3.png";
 
 export const User = () => {
   return (
@@ -10,8 +11,10 @@ export const User = () => {
       {({ removeAuth }) => {
         return (
           <Layout title="Cerrar sesión">
-            <UserTitle>Cerrar sesión</UserTitle>
-            <SubmitButton onClick={removeAuth}>Logout</SubmitButton>
+            <Div>
+              <Img width="40%" src={userLogo} alt="logout-image" />
+              <SubmitButton onClick={removeAuth}>Cerrar sesión</SubmitButton>
+            </Div>
           </Layout>
         );
       }}

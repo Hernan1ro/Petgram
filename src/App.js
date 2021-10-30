@@ -22,6 +22,13 @@ const App = () => {
         <Context.Consumer>
           {({ isAuth }) => (
             <Switch>
+              {!isAuth && <Route exact path="/login" component={Login} />}
+              {!isAuth && <Redirect from="/favs" to="/login" />}
+              {!isAuth && <Redirect from="/user" to="/" />}
+              {!isAuth && <Redirect from="/home" to="/login" />}
+              {isAuth && <Redirect from="/login" to="/home" />}
+              {isAuth && <Redirect from="/singup" to="/home" />}
+              {/* {isAuth && <Redirect from="/" to="/home" />} */}
               <Route
                 exact
                 path="/detail/:id"
@@ -33,20 +40,14 @@ const App = () => {
                 path="/pet/:id"
                 render={(props) => <Home {...props} />}
               />
-              {!isAuth && <Route exact path="/login" component={Login} />}
-              {!isAuth && <Redirect from="/favs" to="/login" />}
-              {!isAuth && <Redirect from="/user" to="/login" />}
-              {!isAuth && <Redirect from="/home" to="/login" />}
-              {isAuth && <Redirect from="/login" to="/home" />}
-              {isAuth && <Redirect from="/singup" to="/home" />}
               <Route
                 exact
                 path="/home"
                 render={(props) => <Home {...props} />}
               />
-              <Route exact path="/singup" component={SingUp} />
               <Route exact path="/user" component={User} />
               <Route exact path="/favs" component={Favs} />
+              <Route exact path="/singup" component={SingUp} />
               <Route path="*" component={NotFound} />
             </Switch>
           )}
