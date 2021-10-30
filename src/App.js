@@ -7,9 +7,10 @@ import { Detail } from "./pages/Detail";
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 import { Favs } from "./pages/Favs";
 import { User } from "./pages/User";
-import { NotRegistered } from "./pages/NotRegistered";
+import { Login } from "./pages/Login";
 import { NotFound } from "./components/NotFound";
 import { Welcome } from "./pages/Welcome";
+import { SingUp } from "./pages/SingUp";
 import Context from "./context/context";
 
 const App = () => {
@@ -37,12 +38,11 @@ const App = () => {
                 path="/pet/:id"
                 render={(props) => <Home {...props} />}
               />
-              {!isAuth && (
-                <Route exact path="/login" component={NotRegistered} />
-              )}
+              {!isAuth && <Route exact path="/login" component={Login} />}
               {!isAuth && <Redirect from="/favs" to="/login" />}
               {!isAuth && <Redirect from="/user" to="/login" />}
               {isAuth && <Redirect from="/login" to="/home" />}
+              <Route exact path="/singup" component={SingUp} />
               <Route exact path="/user" component={User} />
               <Route exact path="/favs" component={Favs} />
               <Route path="*" component={NotFound} />

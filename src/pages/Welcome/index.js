@@ -12,7 +12,7 @@ export const Welcome = () => {
         <SubmitButton>Inicia sesión</SubmitButton>
       </Link>
       <P>¿No tienes una cuenta?</P>
-      <Link to="/login">
+      <Link to="/singup">
         <Span>Registrate</Span>
       </Link>
     </Container>
