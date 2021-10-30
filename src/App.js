@@ -41,6 +41,7 @@ const App = () => {
               {!isAuth && <Route exact path="/login" component={Login} />}
               {!isAuth && <Redirect from="/favs" to="/login" />}
               {!isAuth && <Redirect from="/user" to="/login" />}
+              {!isAuth && <Redirect from="/home" to="/login" />}
               {isAuth && <Redirect from="/login" to="/home" />}
               <Route exact path="/singup" component={SingUp} />
               <Route exact path="/user" component={User} />
