@@ -27,11 +27,6 @@ const App = () => {
                 path="/detail/:id"
                 render={(props) => <Detail {...props} />}
               />
-              <Route
-                exact
-                path="/home"
-                render={(props) => <Home {...props} />}
-              />
               <Route exact path="/" component={Welcome} />
               <Route
                 exact
@@ -43,6 +38,12 @@ const App = () => {
               {!isAuth && <Redirect from="/user" to="/login" />}
               {!isAuth && <Redirect from="/home" to="/login" />}
               {isAuth && <Redirect from="/login" to="/home" />}
+              {isAuth && <Redirect from="/singup" to="/home" />}
+              <Route
+                exact
+                path="/home"
+                render={(props) => <Home {...props} />}
+              />
               <Route exact path="/singup" component={SingUp} />
               <Route exact path="/user" component={User} />
               <Route exact path="/favs" component={Favs} />

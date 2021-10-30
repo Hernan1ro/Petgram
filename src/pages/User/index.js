@@ -1,8 +1,8 @@
 import React from "react";
-import Context from "../context/context";
-import { SubmitButton } from "../components/SubmitButton";
-import { UserTitle } from "../components/SubmitButton/styles";
-import { Layout } from "../components/Layout";
+import Context from "../../context/context";
+import { SubmitButton } from "../../components/SubmitButton";
+import { UserTitle } from "../../components/SubmitButton/styles";
+import { Layout } from "../../components/Layout";
 
 export const User = () => {
   return (
