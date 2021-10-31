@@ -1,8 +1,9 @@
 import React from "react";
-import { UserForm } from "../components/UserForm";
-import Context from "../context/context";
-import { useRegisterMutation } from "../container/RegisterMutation";
-import { Layout } from "../components/Layout";
+import { UserForm } from "../../components/UserForm";
+import Context from "../../context/context";
+import { useRegisterMutation } from "../../container/RegisterMutation";
+import { Layout } from "../../components/Layout";
+import { Div } from "./styles";
 
 export const SingUp = () => {
   const {
@@ -26,14 +27,16 @@ export const SingUp = () => {
           });
         };
         return (
-          <Layout title="Inciar sesión">
-            <UserForm
-              error={errorMsg}
-              loading={loadingRegister}
-              onSubmit={onSubmit}
-              title="Registrarse"
-            />
-          </Layout>
+          <Div>
+            <Layout title="Inciar sesión">
+              <UserForm
+                error={errorMsg}
+                loading={loadingRegister}
+                onSubmit={onSubmit}
+                title="Registrarse"
+              />
+            </Layout>
+          </Div>
         );
       }}
     </Context.Consumer>

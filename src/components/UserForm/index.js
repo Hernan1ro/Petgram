@@ -27,12 +27,14 @@ export const UserForm = ({ onSubmit, title, error, loading }) => {
         placeholder="email"
         {...email}
         disabled={loading}
+        autocomplete="email"
       />
       <Input
         disabled={loading}
         name="password"
         type="password"
         placeholder="Password"
+        autocomplete="email"
         {...password}
       />
       <SubmitButton disabled={loading} type="submit">

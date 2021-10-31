@@ -1,8 +1,9 @@
 import React from "react";
-import { UserForm } from "../components/UserForm";
-import Context from "../context/context";
-import { useLoginMutation } from "../container/LoginMutation";
-import { Layout } from "../components/Layout";
+import { UserForm } from "../../components/UserForm";
+import Context from "../../context/context";
+import { useLoginMutation } from "../../container/LoginMutation";
+import { Layout } from "../../components/Layout";
+import { Div } from "./styles";
 
 export const Login = () => {
   const {
@@ -29,14 +30,16 @@ export const Login = () => {
             });
         };
         return (
-          <Layout title="Inciar sesión">
-            <UserForm
-              loading={loadingLogin}
-              error={errorMsgLogin}
-              onSubmit={onSubmitLogin}
-              title="Iniciar Sesion"
-            />
-          </Layout>
+          <Div>
+            <Layout title="Inciar sesión">
+              <UserForm
+                loading={loadingLogin}
+                error={errorMsgLogin}
+                onSubmit={onSubmitLogin}
+                title="Iniciar Sesion"
+              />
+            </Layout>
+          </Div>
         );
       }}
     </Context.Consumer>

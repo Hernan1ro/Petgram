@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link as LinkRouter } from "react-router-dom";
+import { fadeIn } from "../../styles/Animations";
 
 export const Link = styled(LinkRouter)`
   display: flex;
@@ -18,4 +19,5 @@ export const Image = styled.img`
   object-fit: cover;
   height: 75px;
   width: 75px;
+  ${fadeIn()}
 `;

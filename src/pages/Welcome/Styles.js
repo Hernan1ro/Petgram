@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { Link as LinkRouter } from "react-router-dom";
+import { fadeIn } from "../../styles/Animations";
 
 export const Container = styled.div`
   text-align: center;
+  ${fadeIn()}
 `;
 export const Link = styled(LinkRouter)`
   text-decoration: none;
