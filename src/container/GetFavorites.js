@@ -3,6 +3,7 @@ import React from "react";
 import { ListOfFavs } from "../components/ListOfFavs";
 import { Spinner } from "../components/General/Spinner";
 import { NotFound } from "../components/NotFound";
+import { NoFavs } from "../components/NoFavs";
 
 const GET_FAVORITES = gql`
   query getFavs {
@@ -16,17 +17,9 @@ const GET_FAVORITES = gql`
   }
 `;
 
-const FavsWithQuery = () => {
+export const FavsWithQuery = () => {
   const { loading, data, error } = useQuery(GET_FAVORITES, {
     fetchPolicy: "cache-and-network",
   });
   return { loading, data, error };
-};
-
-export const RenderProp = () => {
-  const { loading, data, error } = FavsWithQuery();
-  if (loading) return <Spinner />;
-  if (error) return <NotFound />;
-  const { favs } = data;
-  return <ListOfFavs favs={favs} />;
 };

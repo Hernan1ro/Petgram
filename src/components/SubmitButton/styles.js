@@ -22,11 +22,3 @@ export const Button = styled.button`
     opacity: 0.3;
   }
 `;
-
-export const UserTitle = styled.h1`
-  font-size: 20px;
-  margin-bottom: 40px;
-  margin-left: 100px;
-  color: #8d00ff;
-  font-weight: bold;
-`;
