@@ -11,7 +11,16 @@ export const UserForm = ({ onSubmit, title, error, loading }) => {
   const password = useInputValue();
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ email: email.value, password: password.value });
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
+      alert("Correo electrónico no válido");
+    } else if (!(password.value.length > 0)) {
+      alert("Password no válido");
+    } else if (
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value) &&
+      password.value.length > 0
+    ) {
+      onSubmit({ email: email.value, password: password.value });
+    }
   };
   return (
     <Form disabled={loading} onSubmit={handleSubmit}>
@@ -23,7 +32,7 @@ export const UserForm = ({ onSubmit, title, error, loading }) => {
       <Title>{title}</Title>
       <Input
         name="email"
-        type="text"
+        type="email"
         placeholder="email"
         {...email}
         disabled={loading}
@@ -34,7 +43,7 @@ export const UserForm = ({ onSubmit, title, error, loading }) => {
         name="password"
         type="password"
         placeholder="Password"
-        autocomplete="email"
+        autocomplete="password"
         {...password}
       />
       <SubmitButton disabled={loading} type="submit">
