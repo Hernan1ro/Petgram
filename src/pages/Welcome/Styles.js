@@ -28,4 +28,5 @@ export const P = styled.p`
 export const Span = styled.span`
   color: #8d00ff;
   font-weight: bolder;
+  text-decoration: underline;
 `;

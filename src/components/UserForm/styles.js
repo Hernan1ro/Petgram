@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Form = styled.form`
-  padding: 16px 0;
+  padding: 0px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,8 +29,9 @@ export const Title = styled.h2`
 `;
 
 export const Error = styled.span`
-  font-size: 16px;
-  color: red;
+  font-size: 12px;
   font-weight: 500;
   margin-top: 10px;
+  margin: 0px;
+  color: #aea5e4;
 `;

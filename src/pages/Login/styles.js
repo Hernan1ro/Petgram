@@ -3,4 +3,5 @@ import { fadeIn } from "../../styles/Animations";
 
 export const Div = styled.div`
   ${fadeIn()}
+  padding-bottom: 49px;
 `;
