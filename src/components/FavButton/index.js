@@ -1,13 +1,16 @@
 import React from "react";
-import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import { Button } from "./styles";
+import likeActive from "../../assets/likeActive.png";
+import like from "../../assets/like.png";
 
 export const FavButton = ({ liked, likes, onClick }) => {
-  const Icon = liked ? MdFavorite : MdFavoriteBorder;
-
   return (
     <Button onClick={onClick}>
-      <Icon size="32px" /> {likes} likes!
+      <img width="30px" src={liked ? likeActive : like} alt="like-button" />
+      <span>
+        {" "}
+        {likes} {likes === 1 ? "like" : "likes"}
+      </span>
     </Button>
   );
 };
