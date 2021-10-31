@@ -8,13 +8,13 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  border: 1px solid #ccc;
+  border: 1px solid #8d00ff;
   border-radius: 15px;
   margin-bottom: 8px;
   padding: 8px 4px;
   display: block;
   width: 80%;
-  outline: 1px solid #8d00ff;
+  outline: none;
   &[disabled] {
     opacity: 0.3;
   }
@@ -23,7 +23,7 @@ export const Input = styled.input`
 export const Title = styled.h2`
   color: #aea5e4;
   font-weight: 600px;
-  margin-bottom: 20px;
+  ${"" /* margin-bottom: 20px; */}
   margin: 0 auto;
   padding: 8px 0;
 `;

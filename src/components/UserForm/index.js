@@ -34,7 +34,7 @@ export const UserForm = ({ onSubmit, title, error, loading }) => {
       <Input
         name="email"
         type="email"
-        placeholder="email"
+        placeholder="Email"
         {...email}
         disabled={loading}
         autocomplete="email"

@@ -28,7 +28,7 @@ export const SingUp = () => {
         };
         return (
           <Div>
-            <Layout title="Inciar sesión">
+            <Layout title="Registrarse">
               <UserForm
                 error={errorMsg}
                 loading={loadingRegister}

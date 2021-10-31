@@ -5,8 +5,8 @@ export const Spinner = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     style={{ margin: "auto", background: "#fff", display: "block" }}
-    width={90}
-    height={90}
+    width={120}
+    height={120}
     viewBox="0 0 100 100"
     preserveAspectRatio="xMidYMid"
   >

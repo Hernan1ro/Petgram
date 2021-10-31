@@ -36,7 +36,7 @@ export const Login = () => {
                 loading={loadingLogin}
                 error={errorMsgLogin}
                 onSubmit={onSubmitLogin}
-                title="Iniciar Sesion"
+                title="Iniciar sesión"
               />
             </Layout>
           </Div>
